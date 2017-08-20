@@ -1,8 +1,8 @@
-<form>
+
   <!-- form input control -->
   <div class="form-group">
     <label class="form-label" for="input-example-1">Name</label>
-    <input class="form-input" type="text" id="input-example-1" placeholder="Name" />
+    <input class="form-input" type="text" id="input-example-1" placeholder="Name" id="name" #name/>
   </div>
  
 
@@ -10,18 +10,14 @@
   <!-- form textarea control -->
   <div class="form-group">
     <label class="form-label" for="input-example-3">Message</label>
-    <textarea class="form-input" id="input-example-3" placeholder="Textarea" rows="3"></textarea>
+    <textarea class="form-input" id="input-example-3" placeholder="Textarea" rows="3" id="message" #message></textarea>
   </div>
  
     <!-- form select control -->
   <div class="form-group">
-    <select class="form-select">
-      <option>Choose a template</option>
-      <option>Single column</option>
-      <!-- <option>Skype</option>
-      <option>Hipchat</option> -->
+    <select class="form-select" id="template" #template>
+      <option *ngFor="let temp of templates" [value]="temp.name">{{temp.name}}</option>  
     </select>
   </div>
 
-  <div><button class="btn float-right">Create</button></div>
-</form>
+  <div><button class="btn float-right" (click)="onCreate(name.value, message.value, template.value)">Create</button></div>
