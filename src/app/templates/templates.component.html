@@ -4,11 +4,11 @@
        <button (click)="addBox()">add</button>
   </div>
    <ul>
-       <li *ngFor="let record of selectTemplate">
-               
-          <textarea class="form-input" id="input-example-3"  rows="3" [value]="username" (input)="username = $event.target.value" ></textarea>
+       <div *ngFor="let record of selectTemplate">
+    
+            <input type="text" id="firstname" [ngModel]="firstname" (ngModelChange)="handleFChange($event)"/>
          
-      </li> 
+      </div> 
 
   </ul> 
 

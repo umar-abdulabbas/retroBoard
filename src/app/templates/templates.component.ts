@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Injectable } from '@angular/core';
+import { Component, OnInit, OnDestroy, Injectable, ElementRef } from '@angular/core';
 import { Router,NavigationEnd,ActivatedRoute } from '@angular/router';
 import { Headers, Http } from '@angular/http';
 import { DsService } from '../dsService.service';
@@ -21,13 +21,15 @@ const TEMPLATES: templates[] = [
 })
 export class TemplatesComponent implements OnInit, OnDestroy {
   currenttemplate;
- 
+   firstname;
   selectTemplate = [];
+  myInfo = this.selectTemplate[0];
   idx = new Date;
-  id = this.idx.getDay() + this.idx.getDate() + this.idx.getTime();
-   username= this.id;
+  item = this.idx.getMilliseconds();
+  
+   //username= this.id;
   master = this.idx.getDay() + this.idx.getDate() + this.idx.getTime();
-  constructor(private router:Router, private dsService: DsService) { }
+  constructor(private router:Router, private dsService: DsService, private eleRef:ElementRef) { }
   
   ngOnInit() {
     let readRouterId = this.router.url.split('/').pop();
@@ -38,21 +40,32 @@ export class TemplatesComponent implements OnInit, OnDestroy {
     this.currenttemplate.subscribe(
       (data) => {  
        
-        this.selectTemplate.push({'id': data.id, 'name':data.name, 'message':data.message, 'template':data.template})
+       // this.selectTemplate.push({'id': data.id, 'name':data.name, 'message':data.message, 'template':data.template})
         
       }
     );
    //result = this.currenttemplate.length;
-   console.log(result);
+   
   }
 
    ngOnDestroy() {
-    this.currenttemplate.unsubscribe();
+    //this.currenttemplate.unsubscribe();
   }
 
-  addBox(){
+  addBox(){ 
+    
+    
+    
+  if(this.selectTemplate.indexOf(this.item) == -1){
+    this.selectTemplate.push(this.item);
+    this.item++;
+  }
   
-  this.selectTemplate.push('','');
    //this.currenttemplate.set(entry);
+   console.log(this.selectTemplate);
+  }
+
+  handleFChange(val){
+    this.currenttemplate.set('firstname',val);
   }
 }
