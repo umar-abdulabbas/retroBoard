@@ -1,3 +1,15 @@
-<p>
+
   templates works!
-</p>
+  <div>
+       <button (click)="addBox()">add</button>
+  </div>
+   <ul>
+       <li *ngFor="let record of selectTemplate">
+               
+          <textarea class="form-input" id="input-example-3"  rows="3" [value]="username" (input)="username = $event.target.value" ></textarea>
+         
+      </li> 
+
+  </ul> 
+
+ 
