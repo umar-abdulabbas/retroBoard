@@ -38,10 +38,26 @@ export class DashboardComponent implements OnInit {
   }
   onCreate(name, message, template){
     this.record = this.dsService.dsInstance.record.getRecord('retro/'+this.id)
-    this.record.set('id',this.id);
-    this.record.set('name',name);
-    this.record.set('message',message);
-    this.record.set('template',template);
+    this.record.set(
+      {
+        "retroboard":[
+          {
+              "profile":[
+                {
+                    'id':this.id,
+                    'name':name,
+                    'message':message,
+                    'template':template,
+                }
+              ]
+          }
+        ]
+      }
+    );
+    // this.record.set('id',this.id);
+    // this.record.set('name',name);
+    // this.record.set('message',message);
+    // this.record.set('template',template);
     this.router.navigate(['/template',this.id]);
 
   }

@@ -4,13 +4,11 @@ import { Headers, Http } from '@angular/http';
 import { DsService } from '../dsService.service';
 
 export class templates{
-    id:string;
-    name:string;
-    message:string;
-    template:string;
+    templatecreate:string;
+   
 }
 const TEMPLATES: templates[] = [
-  
+     {"templatecreate": "Windstorm"}
 ];
 
 
@@ -20,8 +18,9 @@ const TEMPLATES: templates[] = [
   styleUrls: ['./templates.component.css']
 })
 export class TemplatesComponent implements OnInit, OnDestroy {
+  templates = [];
   currenttemplate;
-   firstname;
+  firstname;
   selectTemplate = [];
   myInfo = this.selectTemplate[0];
   idx = new Date;
@@ -41,7 +40,8 @@ export class TemplatesComponent implements OnInit, OnDestroy {
       (data) => {  
        
        // this.selectTemplate.push({'id': data.id, 'name':data.name, 'message':data.message, 'template':data.template})
-        
+        this.templates = data;
+        console.log(templates);
       }
     );
    //result = this.currenttemplate.length;
@@ -53,19 +53,41 @@ export class TemplatesComponent implements OnInit, OnDestroy {
   }
 
   addBox(){ 
+   this.templates.push({templatecreate:''}) ;
+  //   this.currenttemplate.set(
+  //     {
+  //       "templateinfox":[
+  //         {
+              
+  //                   'id':'master',
+  //                   'name':'umar',
+  //                   'message':'Text',
+  //                   'template':'india',
+              
+  //         }
+  //       ]
+  //     }
+  //   );
     
-    
-    
-  if(this.selectTemplate.indexOf(this.item) == -1){
-    this.selectTemplate.push(this.item);
-    this.item++;
-  }
+  // if(this.selectTemplate.indexOf(this.item) == -1){
+  //   this.selectTemplate.push(this.item);
+  //   this.item++;
+  // }
   
-   //this.currenttemplate.set(entry);
-   console.log(this.selectTemplate);
+  //  //this.currenttemplate.set(entry);
+  //  console.log(this.selectTemplate);
   }
 
   handleFChange(val){
     this.currenttemplate.set('firstname',val);
+  }
+
+  addCreate(name:string){
+    name = name.trim();
+    if(!name){
+      return;
+    }
+    this.templates.push({name:name});
+    this.currenttemplate.set(name,name);
   }
 }

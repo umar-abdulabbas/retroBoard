@@ -3,13 +3,12 @@
   <div>
        <button (click)="addBox()">add</button>
   </div>
-   <ul>
-       <div *ngFor="let record of selectTemplate">
-    
-            <input type="text" id="firstname" [ngModel]="firstname" (ngModelChange)="handleFChange($event)"/>
-         
-      </div> 
+  <div>
+        <div *ngFor="let record of templates">
+        <input  #box (keyup.enter)="addCreate(box.value);" placeholder="Enter Your Comment"/>
+        <!--<input type="text" id="firstname" [ngModel]="firstname" (ngModelChange)="handleFChange($event)"/>-->
+        </div> 
+</div>
 
-  </ul> 
 
  
