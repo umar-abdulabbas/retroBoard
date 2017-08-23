@@ -40,18 +40,18 @@ export class DashboardComponent implements OnInit {
     this.record = this.dsService.dsInstance.record.getRecord('retro/'+this.id)
     this.record.set(
       {
-        "retroboard":[
+        "retroboard":
           {
-              "profile":[
+              "profile":
                 {
                     'id':this.id,
                     'name':name,
                     'message':message,
                     'template':template,
                 }
-              ]
+              
           }
-        ]
+        
       }
     );
     // this.record.set('id',this.id);
