@@ -26,6 +26,8 @@ THE SOFTWARE.
 
 script-loader@0.7.0 MIT
 
+@angular/forms@4.3.5 MIT
+
 zone.js@0.8.16 MIT
 The MIT License
 
