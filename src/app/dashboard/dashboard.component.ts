@@ -17,48 +17,37 @@ const TEMPLATES: templates[] = [
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  templates = TEMPLATES;
-  idx = new Date;
-  id = this.idx.getDay() + this.idx.getDate() + this.idx.getTime();
-  name;
-  message;
-  template;
-  record;
+  uniqueId;
+  records;
+  lists;
+  templates;
   constructor(private router:Router, private dsService: DsService) { }
 
   ngOnInit() {
+     // this.uniqueId = this.dsService.dsInstance.getUid();
+      console.log(this.uniqueId);
+      this.records = this.dsService.dsInstance.record;
+      this.lists = this.records.getRecord('check/j6sey9dg-1u9u19cvi8r')
+      this.lists.subscribe((data) =>{
+        console.log(data);
+        this.templates= data;
+      })
       
-    //   this.record.subscribe((val) => {
-    //   this.id; 
-    //   this.name = val.name;
-    //   this.message = val.message;
-    //   this.template = val.template;
-    // })
-    console.log(this.id);
   }
-  onCreate(name, message, template){
-    this.record = this.dsService.dsInstance.record.getRecord('retro/'+this.id)
-    this.record.set(
-      {
-        "retroboard":
-          {
-              "profile":
-                {
-                    'id':this.id,
-                    'name':name,
-                    'message':message,
-                    'template':template,
-                }
-              
-          }
-        
-      }
-    );
-    // this.record.set('id',this.id);
-    // this.record.set('name',name);
-    // this.record.set('message',message);
-    // this.record.set('template',template);
-    this.router.navigate(['/template',this.id]);
 
+  add(content:string, comment:string){
+   var sendData = {
+      content:content,
+      comment:comment
+   }
+    this.templates.push(sendData);
+    console.log(this.templates);
+    const card = this.records.getRecord('check/j6sey9dg-1u9u19cvi8r');
+    card.whenReady((record) => {
+      console.log(record);
+      card.set(this.templates);
+      
+    })
   }
+  
 }

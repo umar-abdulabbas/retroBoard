@@ -5,6 +5,6 @@ declare var deepstream:any;
 @Injectable()
 export class DsService {
   get dsInstance() {
-    return deepstream('wss://154.deepstreamhub.com?apiKey=86ec8a85-5b1f-483f-9528-11eee5e6fbd2').login()
+    return deepstream('wss://154.deepstreamhub.com?apiKey=9d515933-3da3-475f-b3a4-bd14949a1ab1').login()
   }
 }

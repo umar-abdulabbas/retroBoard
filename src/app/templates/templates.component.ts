@@ -27,7 +27,7 @@ export class TemplatesComponent implements OnInit, OnDestroy {
   ngOnInit() {
     let readRouterId = this.router.url.split('/').pop();
     console.log(readRouterId);
-    this.currenttemplate = this.dsService.dsInstance.record.getRecord('retro/'+readRouterId)
+    //this.currenttemplate = this.dsService.dsInstance.record.getRecord('retro/'+readRouterId)
     this.currenttemplate.subscribe('posts',
       (data) =>{ 
         console.log(data);

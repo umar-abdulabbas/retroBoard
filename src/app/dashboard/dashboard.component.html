@@ -1,23 +1,10 @@
-
-  <!-- form input control -->
-  <div class="form-group">
-    <label class="form-label" for="input-example-1">Name</label>
-    <input class="form-input" type="text" id="input-example-1" placeholder="Name" id="name" #name/>
-  </div>
- 
-
+<button (click)="add(content.value,comment.value );">Add</button>
+<input type="text" #content/>
+<input type="text" #comment/>
+<div *ngFor="let temp of templates">
+  <span>{{temp.content}}</span>
+  <span>{{temp.comment}}</span>
+</div>
+<div class="column">
   
-  <!-- form textarea control -->
-  <div class="form-group">
-    <label class="form-label" for="input-example-3">Describtion</label>
-    <input class="form-input" id="input-example-3" placeholder="Describtion" rows="3" id="message" #message />
-  </div>
- 
-    <!-- form select control -->
-  <div class="form-group">
-    <select class="form-select" id="template" #template>
-      <option *ngFor="let temp of templates" [value]="temp.name">{{temp.name}}</option>  
-    </select>
-  </div>
-
-  <div><button class="btn float-right" (click)="onCreate(name.value, message.value, template.value)">Create</button></div>
+</div>
