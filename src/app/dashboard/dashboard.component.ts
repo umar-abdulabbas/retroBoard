@@ -1,4 +1,4 @@
-import { Component, OnInit, Injectable } from '@angular/core';
+import { Component, OnInit, Injectable} from '@angular/core';
 import { Router,NavigationEnd,ActivatedRoute } from '@angular/router';
 import { DsService } from '../dsService.service';
 
@@ -21,6 +21,7 @@ export class DashboardComponent implements OnInit {
   records;
   lists;
   templates;
+  px;
   constructor(private router:Router, private dsService: DsService) { }
 
   ngOnInit() {
@@ -50,4 +51,5 @@ export class DashboardComponent implements OnInit {
     })
   }
   
+   
 }

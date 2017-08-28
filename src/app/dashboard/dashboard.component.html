@@ -1,7 +1,7 @@
 <button (click)="add(content.value,comment.value );">Add</button>
 <input type="text" #content/>
 <input type="text" #comment/>
-<div *ngFor="let temp of templates">
+<div *ngFor="let temp of templates" [ondraggable]="true" (click)="my($event);">
   <span>{{temp.content}}</span>
   <span>{{temp.comment}}</span>
 </div>
