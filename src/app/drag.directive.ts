@@ -1,15 +1,17 @@
-import {Directive, ElementRef, Input, OnInit,HostListener} from '@angular/core';
+import {Directive, ElementRef, Input, OnInit,HostListener, Output, EventEmitter} from '@angular/core';
 
 @Directive({ selector: '[ondraggable]' })
 
 export class Draggable implements OnInit{
+ 
     topStart:number=0;
     leftStart:number=0;
     _allowDrag:boolean = true;
     md:boolean;
-
+    
     constructor(public element: ElementRef) {}
-
+      @Input() myname:string;
+      myFriend:string;
         ngOnInit(){
           // css changes
           if(this._allowDrag){
@@ -17,6 +19,7 @@ export class Draggable implements OnInit{
             this.element.nativeElement.className += ' cursor-draggable';
             
           }
+          
         }
 
         @HostListener('mousedown', ['$event'])
@@ -42,7 +45,8 @@ export class Draggable implements OnInit{
           if(this.md && this._allowDrag){
             this.element.nativeElement.style.top = (event.clientY - this.topStart) + 'px';
             this.element.nativeElement.style.left = (event.clientX - this.leftStart) + 'px';
-            console.log(this.element.nativeElement.style.left);
+            this.myname = this.element.nativeElement.style.left;
+            //console.log(this.myname);
           }
          
         }
@@ -73,7 +77,7 @@ export class Draggable implements OnInit{
 
         @Input('ondraggable')
         set allowDrag(value:boolean){
-           console.log(this.leftStart);
+          
           this._allowDrag = value;
           if(this._allowDrag)
             this.element.nativeElement.className += ' cursor-draggable';

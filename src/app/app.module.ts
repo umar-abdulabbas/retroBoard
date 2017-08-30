@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+
 import { NgModule } from '@angular/core';
 import {Directive, ElementRef, Input, OnInit,HostListener} from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -10,6 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 import { TemplatesComponent, } from './templates/templates.component';
 import { DsService } from './dsService.service';
 import { Draggable } from './drag.directive';
+import { HighlightDirective } from './highlight.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +19,8 @@ import { Draggable } from './drag.directive';
     HeaderComponent,
     FooterComponent,
     TemplatesComponent,
-    Draggable
+    Draggable,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
