@@ -1,3 +1,18 @@
+<div>
+      <button class="btn btn-action circle"><i class="icon icon-plus"></i></button>
+      
+</div>
+      <div class="modal active"  [ondraggable]="true" *ngFor="let card of cards">
+        <div class="modal-container">
+            <div class="modal-header">  <button class="btn btn-clear float-right"></button></div>
+        <div class="modal-body">
+        <div class="content">
+            <div class="form-group"><textarea class="form-input" id="input-example-3" placeholder="Enter Comments" rows="3">{{card.content}}</textarea></div>
+        </div>
+        </div> 
+      </div>
+    </div> <!-- Card End Here -->
+
 <button (click)="add(content.value,comment.value );">Add</button>
 <input type="text" #content/>
 <input type="text" #comment/>
@@ -9,6 +24,4 @@
 <div class="column">
   
 </div>
-
-
 <p id="umar" [myHighlight] style="height:30px">Highlighted with parent component's color</p>

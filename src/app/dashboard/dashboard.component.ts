@@ -7,12 +7,14 @@ import { DsService } from '../dsService.service';
 
 
 export class templates{
-    name:string;
+    id:string;
+    content:string;
+    pos_top:string;
+    pos_left:string;
 }
 const TEMPLATES: templates[] = [
-     {'name': 'Single Col Template'},
-     {'name': 'Multi Col Template'}
-    
+    { id:"1", content:"Hello, I'm first card", pos_top:"100px", pos_left:"100px" },
+    { id:"1", content:"Hello, I'm first card", pos_top:"100px", pos_left:"100px" },
 ];
 
 @Component({
@@ -21,6 +23,9 @@ const TEMPLATES: templates[] = [
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  //New Identification 
+  cards = TEMPLATES;
+
   //color = 'yellow';
   uniqueId;
   records;
@@ -42,15 +47,24 @@ export class DashboardComponent implements OnInit {
       
   }
 
+  addCard():void{
+      var createNewCard = {
+            id:"2",
+            content:"Enter your comment",
+            pos_top:"100px",
+            pos_left:"100px"
+      }
+      this.cards.push(createNewCard);    
+  }
+
+
   add(content:string, comment:string){
    var sendData = {
       content:content,
       comment:comment,
      
    }
-   Array.from(new Set(this.templates));
-    this.templates.push(sendData);
-    
+  
     console.log(this.templates);
     const card = this.records.getRecord('check/j6sey9dg-1u9u19cvi8r');
     card.whenReady((record) => {
