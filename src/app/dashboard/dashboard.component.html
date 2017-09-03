@@ -1,17 +1,33 @@
-<div>
-      <button class="btn btn-action circle"><i class="icon icon-plus"></i></button>
+<div class="dashboardLayout">
       
+      <div style="width:300px; margin:0 auto; margin-top:50px; ">
+      <h6 style="border-left:5px solid #FDC355; padding-left:5px;">Create Your Own Board!</h6>
+     
+
+        <div class="form-group">
+        <label class="form-label" for="input-example-1">Board Name</label>
+        <input class="form-input" type="text" id="input-example-1" placeholder="Board Name" #boardname />
+        </div> <!--Name Ends-->
+        
+        <div class="form-group">
+        <label class="form-label" for="input-example-1">Description</label>
+        <input class="form-input" type="text" id="input-example-1" placeholder="Description" #desc />
+        </div> <!--Desc Ends-->
+
+        <div class="form-group">
+          <label class="form-label" for="input-example-1" >Templates</label>
+          <select class="form-select" #template>
+            <option *ngFor="let template of ctemplates" [value]="template.name">{{template.name}}</option>
+           
+          </select>
+      </div> <!--Template -->
+        <button [ngClass]="{'btn btn-primary':true, 'loading':open}" (click)="create(boardname.value, desc.value, template.value)">Create</button>
+      </div> <!--Inner Container -->
 </div>
-      <div class="modal active"  [ondraggable]="true" *ngFor="let card of cards">
-        <div class="modal-container">
-            <div class="modal-header">  <button class="btn btn-clear float-right"></button></div>
-        <div class="modal-body">
-        <div class="content">
-            <div class="form-group"><textarea class="form-input" id="input-example-3" placeholder="Enter Comments" rows="3">{{card.content}}</textarea></div>
-        </div>
-        </div> 
-      </div>
-    </div> <!-- Card End Here -->
+
+
+
+     
 
 <button (click)="add(content.value,comment.value );">Add</button>
 <input type="text" #content/>

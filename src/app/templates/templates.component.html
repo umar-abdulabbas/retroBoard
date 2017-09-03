@@ -1,19 +1,21 @@
-
-  templates works!
-  <div>
-       <button (click)="addBox()">add</button>
-  </div>
-  <div>
-      <ul>
-          <li *ngFor="let temp of store">
-              {{temp.id}}
-          </li>
-    </ul>
-        <div >
-            
-        </div>
-       
-</div>
+<div class="templateLayout">
+        <div style="margin-top:20px;">
+        <div style="margin:0 auto; width:100%; text-align:center"><button class="btn btn-action circle" (click)="addCard()"><i class="icon icon-plus"></i></button></div>
+         
+         <div id="{{card.id}}" class="modal active"  [ondraggable]="true" *ngFor="let card of cards"
+          [ngStyle]="{'position':'relative', 'top':card.pos_top, 'left':card.pos_left}" (mouseleave)="navCollapse();">
+            <div class="modal-container">
+                <div class="modal-header">  <button class="btn btn-clear float-right"></button></div>
+                <div class="modal-body">
+                <div class="content">
+                <div class="form-group"><textarea class="form-input" id="input-example-3" placeholder="Enter Comments" rows="3">{{card.content}}</textarea></div>
+                </div>
+                </div> 
+                </div>
+        </div> <!-- Card End Here -->
+        
+        </div><!-- Inner Div Ends -->
+</div> <!--Template Layout -->
 
 
  

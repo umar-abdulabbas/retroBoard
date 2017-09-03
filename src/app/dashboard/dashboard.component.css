@@ -1,3 +1,14 @@
 /*Color Code
 #d6d2d9 #EA4885 #FDC355 #8a68c2 #727c8e #f4d8ab #f6a35f
+
 */
+.dashboardLayout{
+   
+   width: 976px;
+    display: block;
+    
+}
+.container{
+     margin:0 auto;
+    width: 100%;
+}
