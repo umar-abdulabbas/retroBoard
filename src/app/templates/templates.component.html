@@ -2,8 +2,8 @@
         <div style="margin-top:20px;">
         <div style="margin:0 auto; width:100%; text-align:center"><button class="btn btn-action circle" (click)="addCard()"><i class="icon icon-plus"></i></button></div>
          
-         <div id="{{card.id}}" class="modal active"  [ondraggable]="true" *ngFor="let card of cards"
-          [ngStyle]="{'position':'relative', 'top':card.pos_top, 'left':card.pos_left}" (mouseleave)="navCollapse();">
+         <div id="{{card.id}}"  class="modal active"  [ondraggable]="true" *ngFor="let card of cards"
+          [ngStyle]="{'position':'relative', 'top':card.pos_top, 'left':card.pos_left}" (mouseup)="navCollapse(card.id);">
             <div class="modal-container">
                 <div class="modal-header">  <button class="btn btn-clear float-right"></button></div>
                 <div class="modal-body">

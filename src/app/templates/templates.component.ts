@@ -50,16 +50,29 @@ export class TemplatesComponent implements OnInit, OnDestroy {
 
   
   addCard():void{
+      var x = this.records.getUid();
       var createNewCard = {
-            id: this.findCurrentPath,
+            id: x,
             content:"Enter your comment",
             pos_top:"",
             pos_left:""
       }
-      this.cards.push(createNewCard);    
+      this.cards.push(createNewCard);
+      this.list.set(this.cards);
   }
-  navCollapse(){
-    console.log("enter");
+  navCollapse(valux){
+     
+     var x = document.getElementById(valux);
+     let left  = getComputedStyle(x, null).getPropertyValue('left');
+     let top  = getComputedStyle(x, null).getPropertyValue('top');
+      var createNewCards = {
+            id: valux,
+            content:"Enter your comment",
+            pos_top:top,
+            pos_left:left
+      }
+      this.cards.push(createNewCards);
+      this.list.set(this.cards);
   }
   
 }
