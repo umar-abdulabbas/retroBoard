@@ -12,7 +12,7 @@ export class templates{
 }
 
 const TEMPLATES: templates[] = [
-    { id:"1", content:"Hello, I'm first card", pos_top:"10px", pos_left:"100px" }
+   // { id:"1", content:"Hello, I'm first card", pos_top:"10px", pos_left:"100px" }
    
 ];
 
@@ -50,9 +50,9 @@ export class TemplatesComponent implements OnInit, OnDestroy {
 
   
   addCard():void{
-      var x = this.records.getUid();
+      var id = this.records.getUid();
       var createNewCard = {
-            id: x,
+            id: id,
             content:"Enter your comment",
             pos_top:"",
             pos_left:""
@@ -60,19 +60,43 @@ export class TemplatesComponent implements OnInit, OnDestroy {
       this.cards.push(createNewCard);
       this.list.set(this.cards);
   }
+
+  save(textarea,id):void{
+        console.log(textarea, id);
+        var x = document.getElementById(id);
+        let left  = getComputedStyle(x, null).getPropertyValue('left');
+        let top  = getComputedStyle(x, null).getPropertyValue('top');
+        console.log(left, top);
+        var newItem ={
+            id: id,
+            content:textarea,
+            pos_top:left,
+            pos_left:top
+        }
+      //  let updateItem = this.
+        let index = this.cards.indexOf(id);
+        this.cards[index] = newItem;
+        this.list.set(this.cards);
+        console.log("newItem",newItem);
+         console.log("Save",this.cards);
+  }
+
+   findIndexToUpdate(newItem) { 
+        return newItem.id === this;
+  }
   navCollapse(valux){
      
-     var x = document.getElementById(valux);
-     let left  = getComputedStyle(x, null).getPropertyValue('left');
-     let top  = getComputedStyle(x, null).getPropertyValue('top');
-      var createNewCards = {
-            id: valux,
-            content:"Enter your comment",
-            pos_top:top,
-            pos_left:left
-      }
-      this.cards.push(createNewCards);
-      this.list.set(this.cards);
+    //  var x = document.getElementById(valux);
+    //  let left  = getComputedStyle(x, null).getPropertyValue('left');
+    //  let top  = getComputedStyle(x, null).getPropertyValue('top');
+    //   var createNewCards = {
+    //         id: valux,
+    //         content:"Enter your comment",
+    //         pos_top:top,
+    //         pos_left:left
+    //   }
+    //   this.cards.push(createNewCards);
+    //   this.list.set(this.cards);
   }
   
 }
