@@ -73,8 +73,8 @@ export class TemplatesComponent implements OnInit, OnDestroy {
             pos_top:left,
             pos_left:top
         }
-      //  let updateItem = this.
-        let index = this.cards.indexOf(id);
+       let updateItem = this.cards.find(this.findIndexToUpdate, newItem.id);
+        let index = this.cards.indexOf(updateItem);
         this.cards[index] = newItem;
         this.list.set(this.cards);
         console.log("newItem",newItem);
@@ -83,6 +83,13 @@ export class TemplatesComponent implements OnInit, OnDestroy {
 
    findIndexToUpdate(newItem) { 
         return newItem.id === this;
+  }
+  delete(id):void{
+      var index = this.cards.indexOf(id);
+      if(index !==1 ){
+        this.cards.splice(index,1);
+      }
+      this.list.set(this.cards);
   }
   navCollapse(valux){
      

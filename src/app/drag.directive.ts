@@ -15,7 +15,7 @@ export class Draggable implements OnInit{
         ngOnInit(){
           // css changes
           if(this._allowDrag){
-            this.element.nativeElement.style.position = 'relative';
+            this.element.nativeElement.style.position = 'absolute';
             this.element.nativeElement.className += ' cursor-draggable';
             
           }
