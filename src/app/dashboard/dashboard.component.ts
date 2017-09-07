@@ -24,8 +24,9 @@ export class DashboardComponent implements OnInit {
   open:boolean = false;
   close:boolean = false;
   ctemplates = CTEMPLATES;
-
-
+  isActiveRetro:boolean = true;
+ isActivePoker:boolean = false;
+ active:boolean = false;
   uniqueId;
   records;
   lists;
@@ -37,14 +38,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-     // this.uniqueId = this.dsService.dsInstance.getUid();
-      // console.log(this.uniqueId);
-      // this.records = this.dsService.dsInstance.record;
-      // this.lists = this.records.getRecord('check/j6sey9dg-1u9u19cvi8r')
-      // this.lists.subscribe((data) =>{
-      //   console.log(data);
-      //   this.templates= data;
-      // })
+     
       
       
   }
@@ -63,8 +57,16 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['/template/',this.uniqueId]);
   }
 
-  
-
+  retroboard():void{
+      this.active = false;
+      this.isActivePoker = false;
+      this.isActiveRetro = true;
+  }
+ poker():void{
+      this.active = true;
+      this.isActivePoker = true;
+      this.isActiveRetro = false;
+  }
   
    
 }

@@ -1,9 +1,21 @@
 <div class="dashboardLayout">
-      
-      <div style="width:300px; margin:0 auto; margin-top:50px; ">
-      <h6 style="border-left:5px solid #FDC355; padding-left:5px;">Create Your Own Board!</h6>
      
+      <div class="container">
+        <div>
+          <ul class="tab tab-block">
+                <li class="tab-item ">
+                  <a (click)="retroboard();" [class.active]="!active" >RetroBoard</a>
+                </li>
+                <li class="tab-item">
+                  <a  (click)="poker();" [class.active]="active">Poker</a>
+                </li>
+               
+          
 
+        </ul>
+      </div>
+        <div class="retroboard" [ngClass]="{'noactive animated slideInLeft':isActiveRetro}">
+        <h6 style="border-left:5px solid #FDC355; padding-left:5px; margin-top:20px;">Create Your Own Board!</h6>
         <div class="form-group">
         <label class="form-label" for="input-example-1">Board Name</label>
         <input class="form-input" type="text" id="input-example-1" placeholder="Board Name" #boardname />
@@ -15,13 +27,25 @@
         </div> <!--Desc Ends-->
 
         <div class="form-group">
-          <label class="form-label" for="input-example-1" >Templates</label>
-          <select class="form-select" #template>
-            <option *ngFor="let template of ctemplates" [value]="template.name">{{template.name}}</option>
-           
-          </select>
-      </div> <!--Template -->
+        <label class="form-label" for="input-example-1" >Templates</label>
+        <select class="form-select" #template>
+        <option *ngFor="let template of ctemplates" [value]="template.name">{{template.name}}</option>
+        </select>
+        </div> <!--Template -->
         <button [ngClass]="{'btn btn-primary':true, 'loading':open}" (click)="create(boardname.value, desc.value, template.value)">Create</button>
-      </div> <!--Inner Container -->
+        </div> <!-- RetroBoard End -->
+
+        <div class="poker" [ngClass]="{'noactive animated slideInLeft':isActivePoker}">
+               <h6 style="border-left:5px solid #FDC355; padding-left:5px; margin-top:20px;">Create Your Own Poker</h6>
+        <div class="form-group">
+        <label class="form-label" for="input-example-1">Poker Name</label>
+        <input class="form-input" type="text" id="input-example-1" placeholder="Board Name" #boardname />
+        </div> <!--Name Ends-->
+        <button [ngClass]="{'btn btn-primary':true, 'loading':open}" (click)="create(boardname.value, desc.value, template.value)">Create</button>
+       
+
+  
+        </div>
+        </div> <!--Inner Container -->
 </div>
 

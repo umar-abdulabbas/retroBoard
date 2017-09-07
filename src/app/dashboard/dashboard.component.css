@@ -10,5 +10,50 @@
 }
 .container{
      margin:0 auto;
-    width: 100%;
+    
+    width:300px; margin:0 auto; margin-top:50px; 
+}
+.retroboard{
+    display: none;
+}
+.poker{
+    display: none;
+}
+.noactive{
+    display: block;
+}
+.tab .tab-item a.active, .tab .tab-item.active a{
+    border-bottom-color: #F6A35F;
+}
+@media only screen and (max-width: 500px) {
+    .dashboardLayout{
+   
+   width: 300px;
+    display: block;
+    
+}
+    .container{
+     margin:0 auto;
+    
+    width:250px; margin:0 auto; margin-top:50px; 
+}
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+.slideInLeft {
+  animation-name: slideInLeft;
 }

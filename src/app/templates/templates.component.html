@@ -1,6 +1,6 @@
 <div class="templateLayout">
         <div style="margin-top:20px;">
-        <div style="margin:0 auto; width:100%; text-align:center"><button class="btn btn-action circle" (click)="addCard()"><i class="icon icon-plus"></i></button></div>
+        <div style="margin:0 auto; width:100%; text-align:center"><button class="btn btn-action circle" (click)="addCard();"><i class="icon icon-plus"></i></button></div>
          
          <div id="{{card.id}}"  class="modal active"  [ondraggable]="true" *ngFor="let card of cards"
           [ngStyle]="{'position':'absolute', 'top':card.pos_top, 'left':card.pos_left}" (mouseup)="navCollapse(card.id);">

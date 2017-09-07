@@ -12,6 +12,7 @@ import { TemplatesComponent, } from './templates/templates.component';
 import { DsService } from './dsService.service';
 import { Draggable } from './drag.directive';
 import { HighlightDirective } from './highlight.directive';
+import { PokerComponent } from './poker/poker.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import { HighlightDirective } from './highlight.directive';
     FooterComponent,
     TemplatesComponent,
     Draggable,
-    HighlightDirective
+    HighlightDirective,
+    PokerComponent
   ],
   imports: [
     BrowserModule,
