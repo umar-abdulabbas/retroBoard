@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./poker.component.css']
 })
 export class PokerComponent implements OnInit {
-
+  fibonacci;
   constructor() { }
 
   ngOnInit() {
+    this.fibonacci = 0;
+    
   }
+
 
 }

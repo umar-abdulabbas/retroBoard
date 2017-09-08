@@ -22,6 +22,9 @@
 .noactive{
     display: block;
 }
+a{
+    cursor: pointer;
+}
 .tab .tab-item a.active, .tab .tab-item.active a{
     border-bottom-color: #F6A35F;
 }

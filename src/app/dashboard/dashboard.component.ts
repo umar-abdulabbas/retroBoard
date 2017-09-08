@@ -20,7 +20,7 @@ const CTEMPLATES: chooseTemplate[]=[
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  //New Identification 
+  //New Identification  
   open:boolean = false;
   close:boolean = false;
   ctemplates = CTEMPLATES;
@@ -55,6 +55,16 @@ export class DashboardComponent implements OnInit {
     const tempRecord = this.records.record.getRecord('retroTemplate/'+this.uniqueId);
     tempRecord.set(tempData);
     this.router.navigate(['/template/',this.uniqueId]);
+  }
+
+  createPoker(pokername:string):void{
+    this.open = true;
+    var pokerdata ={
+      pokerName:pokername
+    }
+    const tempRecord = this.records.record.getRecord('retroTemplate/'+pokername);
+     tempRecord.set(pokerdata);
+     this.router.navigate(['/poker/',pokername]);
   }
 
   retroboard():void{
