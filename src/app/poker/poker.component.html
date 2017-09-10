@@ -1,19 +1,40 @@
-<p>
-  poker works!
-</p>
-<div class="card">
-  <div class="card-image">
-    
+<div class="pokerLayout">
+      <div class="pokerbtn">
+      <button [ngClass]="{'btn btn-action circle':true, 'disabled':pdisabled}" (click)="addPoker();">Poker</button>
+      </div>
+  <div *ngFor ="let poker of storepokeri">
+  <div [ngClass]="{'card':true,'card1':card1}">
+    <div class="modal-header"><button class="btn btn-clear float-right" (click)="delete(poker.id);"></button></div>
+  <div [ngClass]="{'card-image':true, 'animated flip':open}">
+    {{poker.points}}
   </div>
   <div class="card-header">
-    <div class="card-title h5">Microsoft</div>
-    <div class="card-subtitle text-gray">Software and hardware</div>
-  </div>
-  <div class="card-body">
-    Empower every person and every organization on the planet to achieve more.
-  </div>
-  <div class="card-footer">
-    <button class="btn btn-primary" *ngFor="let number of numbers">{{0}}</button>
+    <div class="card-title h5"><input type="text" #name placeholder="Name" style="border:0px; width:180px;" value="{{poker.name}}"/></div>
     
   </div>
+  <div class="card-body">
+    Choose your points!
+  </div>
+  <div class="card-footer">
+    <span *ngFor="let number of fibonacci | slice:1;" style="margin-right:5px; ">
+    <button class="btn btn-primary" style="width:40px;margin-bottom:5px;" (click)="include(number)">{{number}}</button>
+    </span>
+    <span><button class="btn btn-primary" style="width:40px;margin-top:-5px;" (click)="include('&#8734;')">&#8734;</button></span>
+    <span><button class="btn btn-primary" style="width:40px;" (click)="include('?')">?</button></span>
+    
+  </div>
+  <div style="padding:15px;"><button [ngClass]="{'btn btn-primary':true, 'disabled':disabled}" style="width:190px;" (click)="reveal(poker.id, name.value, choose)">Reveal</button></div>
 </div>
+  <div [ngClass]="{'card':true,'card2':card2}">
+  <div [ngClass]="{'card-image':true,'size':size, 'animated flip':open}">
+    {{poker.points}}
+  </div>
+  <div class="card-header">
+    <div class="card-title h5">{{poker.name}}</div>
+    
+  </div>
+  
+  <div style="padding:15px;"><button [ngClass]="{'btn btn-primary':true}" style="width:190px;" (click)="close()">Close</button></div>
+</div>
+</div> <!--Card Container -->
+</div> <!-- PokeRLayout End -->

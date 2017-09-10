@@ -1,0 +1,78 @@
+.card-image{
+    width: 100px;
+    height: 100px;
+    
+    font-size: 40px;
+    line-height: 100px;
+    background: #FDC355;
+    text-align: center;
+    margin: 0 auto;
+    margin-top:10px;
+    color: #fff;
+}
+.size{
+font-size: 20px;
+background: #ccc;
+}
+.card{
+        width: 230px;
+        
+}
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.animated.flip {
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+  animation-name: flip;
+}
+@keyframes flip {
+  from {
+    transform: perspective(400px) rotate3d(0, 1, 0, -360deg);
+    animation-timing-function: ease-out;
+  }
+
+  40% {
+    transform: perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -190deg);
+    animation-timing-function: ease-out;
+  }
+
+  50% {
+    transform: perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -170deg);
+    animation-timing-function: ease-in;
+  }
+
+  80% {
+    transform: perspective(400px) scale3d(.95, .95, .95);
+    animation-timing-function: ease-in;
+  }
+
+  to {
+    transform: perspective(400px);
+    animation-timing-function: ease-in;
+  }
+}
+
+.pokerLayout{
+width: 976px;
+    display: block;
+}
+.pokerbtn{
+    text-align: center;
+}
+.btn.btn-action{
+    width:70px;
+    height: 70px;
+}
+.card1{
+    display: none;
+}
+.card2{
+    display: none;
+}
+.btn.btn-clear{
+    margin-right:10px;
+    margin-top:10px;
+}
