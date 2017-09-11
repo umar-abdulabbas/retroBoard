@@ -13,6 +13,7 @@ export class storePoker{
   id:string;
   name: string;
   points: string;
+  boolean:boolean;
 }
 
 const STOREPOKERS: storePoker[] =[];
@@ -28,13 +29,6 @@ export class PokerComponent implements OnInit {
   storepokeri = STOREPOKERS;
   fibonaciCount = 11;
   readFibonaci;
-  choose;
-  open:boolean = false;
-  size:boolean = true;
-  disabled:boolean = true;
-  card1:boolean = false;
-  card2:boolean = true;
-  pdisabled:boolean = false;
   uniqueId;
   records;
   findCurrentPath;
@@ -48,7 +42,6 @@ export class PokerComponent implements OnInit {
    
     this.calFibNum(this.fibonaciCount);
     this.findCurrentPath = location.pathname.split('/').pop();
-    
     this.list = this.records.record.getRecord('retroTemplate/'+this.findCurrentPath+'temp');
     this.list.subscribe((data) => {
        this.storepokeri= data;
@@ -58,27 +51,19 @@ export class PokerComponent implements OnInit {
   }
   
   include(selNum):void{
-      this.size = false;
-      this.open = true;
-      this.choose = selNum;
-      
-      setTimeout(() => {
-          this.open = false;
-      },1000)
-
-      this.disabled = false;
+     
+     
   }
     
 reveal(id:string, name:string, point:string){
-  this.card1 = true;
-  this.card2 = false;
-  //this.list.set(this.storepokeri);
- // console.log(this.storepokeri);
+  
+  
  console.log(id, name, point);
  var newItem ={
             id: id,
             name:name,
-            points:point
+            points:point,
+            boolean:true
         }
        let updateItem = this.storepokeri.find(this.findIndexToUpdate, newItem.id);
         let index = this.storepokeri.indexOf(updateItem);
@@ -88,10 +73,7 @@ reveal(id:string, name:string, point:string){
  findIndexToUpdate(newItem) { 
         return newItem.id === this;
   }
-close(){
-  this.card1 = false;
-  this.card2 = true;
-}
+
    calFibNum(num){
      var firstNum=1, secNum=0, temp;
      while (num >= 0){
@@ -111,18 +93,19 @@ close(){
       var createNewPCard = {
             id: this.uniqueId,
             name:"Name",
-            points:this.choose
+            points:"",
+            boolean:false
       }
      this.storepokeri.push(createNewPCard);
-     console.log(this.storepokeri);
-     this.pdisabled = true;
+    
+    
    }
 
    delete(id):void{
       var index = this.storepokeri.indexOf(id);
       if(index !==1 ){
         this.storepokeri.splice(index,1);
-        this.pdisabled = false;
+        
       }
      // this.list.set(this.storepokeri);
   }
