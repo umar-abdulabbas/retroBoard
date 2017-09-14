@@ -4,3 +4,14 @@
     display: block;
     
 }
+
+
+@media only screen and (max-width: 500px) {
+   .templateLayout{
+   
+   width: 280px;
+    
+    
+}
+
+}

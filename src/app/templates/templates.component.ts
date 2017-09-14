@@ -31,7 +31,7 @@ export class TemplatesComponent implements OnInit, OnDestroy {
   list;
   createData;
   constructor(private router:Router, private dsService: DsService, private eleRef:ElementRef, private location:Location, private route:ActivatedRoute) {
-       this.records = this.dsService.dsInstance;
+       this.records =  this.dsService.dsInstance;
        this.uniqueId = this.records.getUid();
    }
   
@@ -53,7 +53,7 @@ export class TemplatesComponent implements OnInit, OnDestroy {
       var id = this.records.getUid();
       var createNewCard = {
             id: id,
-            content:"Enter your comment",
+            content:"",
             pos_top:"",
             pos_left:""
       }
@@ -70,40 +70,23 @@ export class TemplatesComponent implements OnInit, OnDestroy {
         var newItem ={
             id: id,
             content:textarea,
-            pos_top:left,
-            pos_left:top
+            pos_top:top,
+            pos_left:left
         }
        let updateItem = this.cards.find(this.findIndexToUpdate, newItem.id);
         let index = this.cards.indexOf(updateItem);
         this.cards[index] = newItem;
         this.list.set(this.cards);
-        console.log("newItem",newItem);
-         console.log("Save",this.cards);
+      
   }
 
    findIndexToUpdate(newItem) { 
         return newItem.id === this;
   }
-  delete(id):void{
-      var index = this.cards.indexOf(id);
-      if(index !==1 ){
-        this.cards.splice(index,1);
-      }
+  delete(id:string):void{
+      this.cards = this.cards.filter( item => item.id !== id);
       this.list.set(this.cards);
   }
-  navCollapse(valux){
-     
-    //  var x = document.getElementById(valux);
-    //  let left  = getComputedStyle(x, null).getPropertyValue('left');
-    //  let top  = getComputedStyle(x, null).getPropertyValue('top');
-    //   var createNewCards = {
-    //         id: valux,
-    //         content:"Enter your comment",
-    //         pos_top:top,
-    //         pos_left:left
-    //   }
-    //   this.cards.push(createNewCards);
-    //   this.list.set(this.cards);
-  }
+  
   
 }

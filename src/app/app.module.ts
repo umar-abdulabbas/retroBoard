@@ -8,7 +8,7 @@ import { FormsModule }   from '@angular/forms';
 import { DashboardComponent,  } from './dashboard/dashboard.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { TemplatesComponent, } from './templates/templates.component';
+import { TemplatesComponent } from './templates/templates.component';
 import { DsService } from './dsService.service';
 import { Draggable } from './drag.directive';
 import { HighlightDirective } from './highlight.directive';

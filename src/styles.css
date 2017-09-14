@@ -6,7 +6,9 @@ body{
     background: #FAFAFA;
 }
 /*Color Balance- #FAFAFA , #D6D2D9 #EA4885, #FDC355, #8A68CA #727C8E, F4D8AB, F6A35F*/
-
+ #retroLayout{
+        width:100%;
+}
 .btn.btn-primary{
     background:#FDC355;
     border-color:#FDC355;
@@ -29,4 +31,10 @@ body{
     background:#FDC355;
     border-color:#FDC355;
     color: #fff;
+}
+
+@media screen and (max-width: 375px) {
+   #layout{
+       
+   }
 }
