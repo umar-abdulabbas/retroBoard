@@ -1,40 +1,71 @@
 /* You can add global styles to this file, and also import other style files */
-#retroLoading{
-    height: 100vh;
+html, body {
+  height: 100%;
+  margin: 0;
+  color: #CACAF8;
+}
+.retroWrapper { height: 100%; display: flex; flex-direction: column;
+}
+.header { 
+  xheight:50px;
+}
+.footer
+{
+   
+}
+.retroContent {
+  flex: 1;
+  overflow: auto;
+ 
 }
 body{
-    background: #FAFAFA;
-}
-/*Color Balance- #FAFAFA , #D6D2D9 #EA4885, #FDC355, #8A68CA #727C8E, F4D8AB, F6A35F*/
- #retroLayout{
-        width:100%;
-}
+    background: #FAFAFA;   
+    background: #3e98c3; /* Old browsers */
+    background: -webkit-linear-gradient(left, #3e98c3 6%, #626cd4 56%, #8144e4 100%);
+    background: -moz-linear-gradient(left, #3e98c3 6%, #626cd4 56%, #8144e4 100%);
+    background: -o-linear-gradient(left, #3e98c3 6%, #626cd4 56%, #8144e4 100%);
+    background: linear-gradient(to right, #3e98c3 6%, #626cd4 56%, #8144e4 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3e98c3', endColorstr='#8144e4',GradientType=1 ); /* IE6-9 */
+}   
+
+.innerCover {
+    margin: 0 auto;
+} 
 .btn.btn-primary{
-    background:#FDC355;
-    border-color:#FDC355;
+    background:#1B1565;
+    border-color:#1B1565;
 }
 .btn.btn-primary.active, .btn.btn-primary:active{
-    background:#FDC355;
-    border-color:#FDC355;
+   background:#1B1565;
+    border-color:#1B1565;
 }
 .btn.btn-primary:focus, .btn.btn-primary:hover{
-     background:#FDC355;
-    border-color:#FDC355;
+     background:#1B1565;
+    border-color:#1B1565;
 }
 .btn{
-    background:#FDC355;
-    border-color:#FDC355;
+    background:#1B1565;
+    border-color:#1B1565;
     color: #fff;
 }
 
 .btn:hover, .btn:focus {
-    background:#FDC355;
-    border-color:#FDC355;
+    background:#1B1565;
+    border-color:#1B1565;
     color: #fff;
 }
-
+.form-input{
+    background:#1B1565;
+    color: #fff;
+    border-color: #CACAF8;
+}
+.form-select{
+    background:#1B1565;
+    color: #fff;
+}
+.form-select:not([multiple]):not([size]){
+     background:#1B1565 url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23667189' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E") no-repeat right .35rem center/.4rem .5rem
+}
 @media screen and (max-width: 375px) {
-   #layout{
-       
-   }
+ 
 }

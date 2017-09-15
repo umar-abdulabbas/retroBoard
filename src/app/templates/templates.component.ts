@@ -30,6 +30,10 @@ export class TemplatesComponent implements OnInit, OnDestroy {
   findCurrentPath;
   list;
   createData;
+  isActive:boolean = true;
+  mobHeight: any;
+  mobWidth: any;
+  
   constructor(private router:Router, private dsService: DsService, private eleRef:ElementRef, private location:Location, private route:ActivatedRoute) {
        this.records =  this.dsService.dsInstance;
        this.uniqueId = this.records.getUid();
@@ -41,7 +45,11 @@ export class TemplatesComponent implements OnInit, OnDestroy {
     this.list.subscribe((data) => {
        this.cards= data;
      })
-     
+   
+this.mobHeight = (window.screen.height) + "px";
+this.mobWidth = (window.screen.width) + "px";
+
+console.log(this.mobWidth)
   }
 
    ngOnDestroy() {
@@ -54,8 +62,8 @@ export class TemplatesComponent implements OnInit, OnDestroy {
       var createNewCard = {
             id: id,
             content:"",
-            pos_top:"",
-            pos_left:""
+            pos_top:Math.floor(Math.random() * document.body.clientWidth) + "px",
+            pos_left:Math.floor(Math.random() * document.body.clientHeight) + "px"
       }
       this.cards.push(createNewCard);
       this.list.set(this.cards);
@@ -77,7 +85,7 @@ export class TemplatesComponent implements OnInit, OnDestroy {
         let index = this.cards.indexOf(updateItem);
         this.cards[index] = newItem;
         this.list.set(this.cards);
-      
+      this.isActive = true;
   }
 
    findIndexToUpdate(newItem) { 
@@ -87,6 +95,10 @@ export class TemplatesComponent implements OnInit, OnDestroy {
       this.cards = this.cards.filter( item => item.id !== id);
       this.list.set(this.cards);
   }
-  
+  textArea(value){
+      console.log(value);
+       value = true;
+  }
+
   
 }

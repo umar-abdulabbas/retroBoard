@@ -4,14 +4,13 @@
 */
 .dashboardLayout{
    
-   width: 976px;
+   
     display: block;
     
 }
 .container{
      margin:0 auto;
-    
-    width:300px; margin:0 auto; margin-top:50px; 
+     width:300px; margin:0 auto; margin-top:50px; 
 }
 .retroboard{
     display: none;
@@ -25,13 +24,20 @@
 a{
     cursor: pointer;
 }
+.tab{
+    border-bottom: none;
+}
 .tab .tab-item a.active, .tab .tab-item.active a{
-    border-bottom-color: #F6A35F;
+    border-bottom-color: #1B1565;
+    color:#fff;
+}
+.tab.tab-block .tab-item a{
+    color:#fff;
 }
 @media only screen and (max-width: 500px) {
     .dashboardLayout{
    
-   width: 300px;
+   
     display: block;
     
 }

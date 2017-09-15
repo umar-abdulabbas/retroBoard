@@ -10,12 +10,10 @@
                   <a  (click)="poker();" [class.active]="active">Poker</a>
                 </li>
                
-          
-
-        </ul>
+             </ul>
       </div>
         <div class="retroboard" [ngClass]="{'noactive animated slideInLeft':isActiveRetro}">
-        <h6 style="border-left:5px solid #FDC355; padding-left:5px; margin-top:20px;">Create Your Own Board!</h6>
+     
         <div class="form-group">
         <label class="form-label" for="input-example-1">Board Name</label>
         <input class="form-input" type="text" id="input-example-1" placeholder="Board Name" #boardname />
@@ -36,7 +34,7 @@
         </div> <!-- RetroBoard End -->
         <!--Poker Board -->
         <div class="poker" [ngClass]="{'noactive animated slideInLeft':isActivePoker}">
-               <h6 style="border-left:5px solid #FDC355; padding-left:5px; margin-top:20px;">Create Your Own Poker</h6>
+              
         <div class="form-group">
         <label class="form-label" for="input-example-1">Poker Name</label>
         <input class="form-input" type="text" id="input-example-1" placeholder="Board Name" #pokername />

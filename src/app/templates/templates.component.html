@@ -2,7 +2,7 @@
         <div style="margin-top:20px;">
         <div style="margin:0 auto; width:100%; text-align:center"><button class="btn btn-action circle" (click)="addCard()"><i class="icon icon-plus"></i></button></div>
         
-                <div class="card" id="{{card.id}}"  [ondraggable]="true" *ngFor="let card of cards"
+                <div class="card" id="{{card.id}}"  [ondraggable]="true" *ngFor="let card of cards; let i=index"
           [ngStyle]="{'position':'absolute', 'top':card.pos_top, 'left':card.pos_left}">
                        
                         <div class="card-header">
@@ -10,10 +10,10 @@
                         <div class="card-subtitle text-gray"></div>
                         </div>
                         <div class="card-body">
-                        <textarea #textarea class="form-input" id="input-example-3" placeholder="Enter Comments" rows="3">{{card.content}}</textarea>
+                        <textarea #textarea class="form-input" id="{{i}}card" placeholder="Enter Comments" rows="2" (keyup)="!i+'card'">{{card.content}}</textarea>
                         </div>
                         <div class="card-footer">
-                         <button [ngClass]="{'btn btn-primary':true, 'loading':open}" (click)="save(textarea.value, card.id);">Save</button>
+                        <button [ngClass]="{'btn btn-primary':true, 'disabled':i+'card', 'loading':open}" (click)="save(textarea.value, card.id);">Save</button>
                         </div>
                </div> <!-- card End-->
         

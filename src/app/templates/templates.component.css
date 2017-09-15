@@ -1,15 +1,19 @@
 .templateLayout{
    
-   width: 976px;
-    display: block;
-    
+ 
+}
+
+.card{
+    background:linear-gradient(to right, #3e98c3 6%, #626cd4 56%, #8144e4 100%);
+    border-color: #9D9DEB;
+    width: 150px;
 }
 
 
 @media only screen and (max-width: 500px) {
    .templateLayout{
    
-   width: 280px;
+   
     
     
 }
