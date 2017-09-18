@@ -30,10 +30,10 @@ export class TemplatesComponent implements OnInit, OnDestroy {
   findCurrentPath;
   list;
   createData;
-  isActive:boolean = true;
+  isActive:boolean = false ;
   mobHeight: any;
   mobWidth: any;
-  
+  isSpecial = true;
   constructor(private router:Router, private dsService: DsService, private eleRef:ElementRef, private location:Location, private route:ActivatedRoute) {
        this.records =  this.dsService.dsInstance;
        this.uniqueId = this.records.getUid();
@@ -62,15 +62,17 @@ console.log(this.mobWidth)
       var createNewCard = {
             id: id,
             content:"",
-            pos_top:Math.floor(Math.random() * document.body.clientWidth) + "px",
-            pos_left:Math.floor(Math.random() * document.body.clientHeight) + "px"
+            pos_top:Math.floor(Math.random() * 100) + "px",
+            pos_left:Math.floor(Math.random() * 100) + "px"
       }
+     
       this.cards.push(createNewCard);
       this.list.set(this.cards);
   }
 
   save(textarea,id):void{
-        console.log(textarea, id);
+      
+    
         var x = document.getElementById(id);
         let left  = getComputedStyle(x, null).getPropertyValue('left');
         let top  = getComputedStyle(x, null).getPropertyValue('top');
@@ -81,11 +83,12 @@ console.log(this.mobWidth)
             pos_top:top,
             pos_left:left
         }
-       let updateItem = this.cards.find(this.findIndexToUpdate, newItem.id);
+        let updateItem = this.cards.find(this.findIndexToUpdate, newItem.id);
         let index = this.cards.indexOf(updateItem);
         this.cards[index] = newItem;
         this.list.set(this.cards);
-      this.isActive = true;
+        this.isActive = true;
+
   }
 
    findIndexToUpdate(newItem) { 
@@ -96,9 +99,9 @@ console.log(this.mobWidth)
       this.list.set(this.cards);
   }
   textArea(value){
-      console.log(value);
-       value = true;
+      this.isActive = value;
+      this.isActive = true;
   }
-
+ 
   
 }

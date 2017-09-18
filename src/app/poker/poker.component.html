@@ -1,16 +1,20 @@
 <div class="pokerLayout">
       <div class="pokerbtn">
-      <button [ngClass]="{'btn btn-action circle':true, 'disabled':pdisabled}" (click)="addPoker();">Poker</button>
+      <button [ngClass]="{'btn btn-action circle':true, 'disabled':pdisabled}" (click)="addPoker();"><i class="icon icon-plus"></i></button>
       </div>
       <div class="container" >
       <div class="columns">
-            <div class="column col-3">
+            <div class="column col-3" *ngFor="let poker of storepokeri">
                 <div class="card">
+                     <div class="delete"> <button class="btn btn-clear float-right" (click)="delete(poker.id);"></button></div>
                       <div class="card-image">
-                       
+                        {{poker.points}}
                       </div>
                       <div class="card-header">
-                        <div class="card-title h5">Microsoft</div>
+                        <div class="card-title h5">
+                              <input type="text" #name value="{{poker.name}}" class="inputadd" placeholder="Enter your Name"/>
+                              
+                        </div>
                         
                       </div>
                       <div class="card-body">
@@ -20,12 +24,12 @@
                       <div class="card-footer">
     
     <span *ngFor="let number of fibonacci | slice:1;" style="margin-right:5px; ">
-    <button class="btn btn-primary" style="width:40px;margin-bottom:5px;" (click)="include(number)">{{number}}</button>
+    <button class="btn btn-primary" style="width:40px;margin-bottom:5px;" (click)="include(poker.id, name.value, number)">{{number}}</button>
     </span>
-    <span><button class="btn btn-primary" style="width:40px;margin-top:-5px;" (click)="include('&#8734;')">&#8734;</button></span>
-    <span><button class="btn btn-primary" style="width:40px;" (click)="include('?')">?</button></span>
+    <span><button class="btn btn-primary" style="width:40px;margin-top:-5px;" (click)="include(poker.id, name.value,'&#8734;')">&#8734;</button></span>
+    <span><button class="btn btn-primary" style="width:40px;" (click)="include(poker.id, name.value, '?')">?</button></span>
    
-    <div style="margin-top:10px;"><button [ngClass]="{'btn btn-primary':true, 'disabled':disabled}" style="width:190px;" (click)="reveal(poker.id, name.value, choose)">Reveal</button></div>
+    <div style="margin-top:10px;"><button [ngClass]="{'btn btn-primary':true, 'disabled':disabled}" style="width:190px;" (click)="reveal(poker.id, name.value, poker.points)">Reveal</button></div>
                       </div>
                 </div> <!-- #card End -->
             </div>

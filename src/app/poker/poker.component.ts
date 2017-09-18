@@ -50,8 +50,17 @@ export class PokerComponent implements OnInit {
 
   }
   
-  include(selNum):void{
-     
+  include(id, name, selNum):void{
+     var newItem ={
+            id: id,
+            name:name,
+            points:selNum,
+            boolean:true
+        }
+       let updateItem = this.storepokeri.find(this.findIndexToUpdate, newItem.id);
+        let index = this.storepokeri.indexOf(updateItem);
+        this.storepokeri[index] = newItem;
+        this.list.set(this.storepokeri);
      
   }
     
@@ -92,7 +101,7 @@ reveal(id:string, name:string, point:string){
      // console.log(id);
       var createNewPCard = {
             id: this.uniqueId,
-            name:"Name",
+            name:"",
             points:"",
             boolean:false
       }
@@ -108,6 +117,8 @@ reveal(id:string, name:string, point:string){
         
       }
      // this.list.set(this.storepokeri);
+       this.storepokeri = this.storepokeri.filter( item => item.id !== id);
+      this.list.set(this.storepokeri);
   }
 }
 
