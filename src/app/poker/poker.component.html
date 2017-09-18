@@ -1,15 +1,16 @@
 <div class="pokerLayout">
       <div class="pokerbtn">
-      <button [ngClass]="{'btn btn-action circle':true, 'disabled':pdisabled}" (click)="addPoker();"><i class="icon icon-plus"></i></button>
+      <button [ngClass]="{'btn btn-action circle':true}" (click)="addPoker();"><i class="icon icon-plus"></i></button>
       </div>
       <div class="container" >
       <div class="columns">
-            <div class="column col-3" *ngFor="let poker of storepokeri">
+            <div class="column col-3" *ngFor="let poker of storepokeri" id="{{poker.id}}">
                 <div class="card">
                      <div class="delete"> <button class="btn btn-clear float-right" (click)="delete(poker.id);"></button></div>
                       <div class="card-image">
                         {{poker.points}}
                       </div>
+                      
                       <div class="card-header">
                         <div class="card-title h5">
                               <input type="text" #name value="{{poker.name}}" class="inputadd" placeholder="Enter your Name"/>

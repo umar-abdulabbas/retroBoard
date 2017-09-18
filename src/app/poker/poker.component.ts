@@ -51,6 +51,7 @@ export class PokerComponent implements OnInit {
   }
   
   include(id, name, selNum):void{
+    console.log(id, name, selNum);
      var newItem ={
             id: id,
             name:name,
@@ -60,7 +61,7 @@ export class PokerComponent implements OnInit {
        let updateItem = this.storepokeri.find(this.findIndexToUpdate, newItem.id);
         let index = this.storepokeri.indexOf(updateItem);
         this.storepokeri[index] = newItem;
-        this.list.set(this.storepokeri);
+        //this.list.set(this.storepokeri);
      
   }
     
@@ -75,7 +76,7 @@ reveal(id:string, name:string, point:string){
             boolean:true
         }
        let updateItem = this.storepokeri.find(this.findIndexToUpdate, newItem.id);
-        let index = this.storepokeri.indexOf(updateItem);
+       let index = this.storepokeri.indexOf(updateItem);
         this.storepokeri[index] = newItem;
         this.list.set(this.storepokeri);
 }
@@ -100,7 +101,7 @@ reveal(id:string, name:string, point:string){
      // var id = this.records.getUid();
      // console.log(id);
       var createNewPCard = {
-            id: this.uniqueId,
+            id: this.records.getUid(),
             name:"",
             points:"",
             boolean:false
